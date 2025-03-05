@@ -11,9 +11,11 @@ with (orm.Session(engine)) as session:
     pupils = session.query(model.Pupil).all()
     print(pupils)
 
-    for pupil in pupils:
-        print(pupil.first_name, pupil.last_name)
+    # for pupil in pupils:
+    #     print(pupil.first_name, pupil.last_name, pupil.subjects[::],pupil.house)
 
-    houses = session.query(model.House).all()
-    for house in houses:
-        print(house.name, house.pupils)
+
+
+    maths = session.query(model.Subject).where(model.Subject.name == "Maths").all()
+
+    print(maths)
